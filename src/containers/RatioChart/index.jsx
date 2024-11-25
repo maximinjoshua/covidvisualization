@@ -105,8 +105,10 @@ export default function Combining() {
     const pieChartSeriesCases = stateData[state]["actuals"].cases
     const pieChartSeriesDeaths = stateData[state]["actuals"].deaths
 
-    setPieChartSeries([{ id: 0, value: pieChartSeriesCases - pieChartSeriesDeaths, label: "Covid Survived" },
-    { id: 1, value: pieChartSeriesDeaths, label: "Covid Deaths" }
+    const survivedPercentage = (((pieChartSeriesCases - pieChartSeriesDeaths)/pieChartSeriesCases) *100).toFixed(2)
+
+    setPieChartSeries([{ id: 0, value: pieChartSeriesCases - pieChartSeriesDeaths, label: `${survivedPercentage}% of affected people survived covid` },
+    { id: 1, value: pieChartSeriesDeaths, label: `${(100-survivedPercentage).toFixed(2)}% of affected people succumbed to covid` }
     ])
   }
 
@@ -227,11 +229,11 @@ export default function Combining() {
         {onlyStateDataIndex != null ? <PieChart
           series={[
             {
-              arcLabel: (item) => `${item.value}`,
+              arcLabel: (item) => `${item.value} people`,
               data: pieChartSeries
             },
           ]}
-          width={600}
+          width={1000}
           height={200}
         /> :
           <Box
