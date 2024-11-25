@@ -26,6 +26,7 @@ export default function Combining() {
     return date;
   }
 
+  // pull data from somewhere
   useEffect(() => {
     retrieveStateData();
   }, []);
