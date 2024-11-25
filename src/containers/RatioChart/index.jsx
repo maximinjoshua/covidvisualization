@@ -115,11 +115,13 @@ export default function Combining() {
   return (
     stateData && (
       <Container maxWidth="lg" style={{ padding: '20px' }}>
-        <Typography variant="h3" gutterBottom>
+        <Typography variant="h2" gutterBottom>
           Covid Data Analysis
         </Typography>
+        <Typography variant='h3'>Fall 2024 CS 5525 Cloud Computing Assignment 6</Typography>
+        <Typography variant='h5'>Name: Maximin Joshua Michael Edison | Student Id: 793</Typography>
         <Container>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" sx={{"margin-top": "30px"}} gutterBottom>
             Covid Cases and Death trends Chart
           </Typography>
           <Grid container spacing={3}>
